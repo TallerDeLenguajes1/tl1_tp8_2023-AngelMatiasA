@@ -25,7 +25,7 @@ public class ListaTarea
             /* Para pasar tareas necesitaria otro constructor q no inicialize en  con la variable estatica
             el contador id . */
 
-            Console.WriteLine($" ***** \n ****** \n ***\n Ingrese la descripcion de la tarea numero: {i+1}");
+            Console.WriteLine($"  \n      *********  ********* \n Ingrese la descripcion de la tarea numero: {i+1}. ");
             aux = Console.ReadLine();
             Tareas tarea = new Tareas(aux);
             listaPendiente.Add(tarea);
@@ -34,32 +34,21 @@ public class ListaTarea
         }
     }
 
-    public void mostrarTareasPendietes()
+    public void mostrarTareas(List<Tareas> lista)
     {   
 
         /*Le puedo pasar por parametro la lista y crear una variable 
         contador para el num de tarea*/
-        foreach (var tarea in listaPendiente)
+        int contador = 0;
+        foreach (var tarea in lista)
         { 
 
-            Console.WriteLine($" \n ******* \n TAREA NRO : {tarea.ID}.");
+            Console.WriteLine($" \n *********    ********* \n TAREA NRO : {++contador}.");
             Console.WriteLine($"  El id de la tarea es: {tarea.ID} ");
             Console.WriteLine($"   La duracion de la tarea es: {tarea.Duracion} ");
             Console.WriteLine($"  La descripcion de la tarea es: {tarea.Descripcion} ");
            
         }
-
-        // for (int i = 0; i < n; i++)
-        // { 
-        //     Tareas NuevaTarea= new Tareas();
-        //     Console.WriteLine("Ingrese la descripcion de la tarea: ");
-        //  NuevaTarea.Descripcion=Console.ReadLine(); 
-        //  listTarea.Add(NuevaTarea);
-
-
-
-        // }
-
 
     }
 
