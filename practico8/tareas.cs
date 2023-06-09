@@ -12,13 +12,12 @@ public class Tareas
 //     return this.Descripcion;
 // }
     public Tareas(){
-        this.ID = TareaID++;
          Random myObject = new Random();
         this.Duracion= myObject.Next(10, 100);
     }
     public Tareas (string Descripcion){ 
         this.Descripcion = Descripcion;  
-        this.ID = TareaID++;
+        this.ID = ++TareaID;
          Random myObject = new Random();
         this.Duracion= myObject.Next(10, 100);
 
