@@ -14,20 +14,22 @@ public class ListaTarea
         listaPendiente = new List<Tareas>();
         listaRealizadas = new List<Tareas>();
         //  Tareas NuevaTarea;
-
-
-
     }
 
     public void PedirTareas(int n)
     {
-
+        string aux;
         for (int i = 0; i < n; i++)
         {
-            Tareas tarea = new Tareas();
+            // Tareas tarea = new Tareas();
+            /* Para pasar tareas necesitaria otro constructor q no inicialize en  con la variable estatica
+            el contador id . */
+
             Console.WriteLine("Ingrese la descripcion de la tarea: ");
-            tarea.Descripcion = Console.ReadLine();
+            aux = Console.ReadLine();
+            Tareas tarea = new Tareas( aux);
             listaPendiente.Add(tarea);
+            
         }
     }
 
