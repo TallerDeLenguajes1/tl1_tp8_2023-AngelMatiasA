@@ -18,6 +18,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
             
            ManejoTareas.PedirTareas(cantidad); 
            ManejoTareas.mostrarTareas(ManejoTareas.ListaPendiente);
+           ManejoTareas.moverTareas();
+           Console.WriteLine("\n \n ***** \n \n ****** \nmuestro tareas realizadas");
+           ManejoTareas.mostrarTareas(ManejoTareas.ListaRealizadas);
+ 
+
 
     
             
