@@ -1,6 +1,7 @@
 namespace EspacioListaTareas;
 using System;
-using espacioTareas;
+using espacioTareas; 
+using System.IO;
 
 public class ListaTarea
 {
@@ -72,6 +73,26 @@ public class ListaTarea
 
         }
 
+
+    }
+    public void sumatoriaDeHrs( List<Tareas> lista, string RutaArch){
+        int totalHr = 0; 
+
+        foreach (var tarea in lista)
+        {
+            totalHr += tarea.Duracion;
+            
+        }
+        using (StreamWriter escritor = new StreamWriter(RutaArch))
+        {
+              escritor.WriteLine(" Total de horas trabajadas : ");
+        
+        escritor.WriteLine($" Total: {totalHr}  ");
+            
+        }
+        
+      
+       
 
     }
     public void moverTareas()
