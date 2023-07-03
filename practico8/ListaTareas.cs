@@ -51,6 +51,20 @@ public class ListaTarea
         }
 
     }
+    public void eliminarPorId( int id){
+        
+        for (int i = listaPendiente.Count-1 ; i >= 0 ; i--)
+        {
+            if (listaPendiente[i].ID == id)
+            {
+                listaPendiente.RemoveAt(i);
+                
+            }
+            
+        }
+
+       
+    }
     public void moverTareas()
     {
         var contador = 0;
@@ -84,8 +98,10 @@ public class ListaTarea
                 TRealizada.ID = tarea.ID; 
                 TRealizada.Duracion = tarea.Duracion; 
 
-                listaRealizadas.Add(TRealizada);                
-                tareaAnterior = tarea;
+                listaRealizadas.Add(TRealizada); 
+                // tareaAnterior = tarea;
+                // listaPendiente.Remove(tareaAnterior); 
+               
                 Console.WriteLine("Tarea movida con exito !");
                 
             }
@@ -94,12 +110,7 @@ public class ListaTarea
 
 
         } 
-        foreach (var realizadas in listaRealizadas)
-        {
-            listaPendiente.Remove(realizadas); 
-            
-            
-        }
+     
         
             Console.WriteLine("sale de foreach");
     }
