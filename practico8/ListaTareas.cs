@@ -84,17 +84,24 @@ public class ListaTarea
                 TRealizada.ID = tarea.ID; 
                 TRealizada.Duracion = tarea.Duracion; 
 
-                listaRealizadas.Add(TRealizada); 
-                listaPendiente.Remove(tarea); 
+                listaRealizadas.Add(TRealizada);                
                 tareaAnterior = tarea;
                 Console.WriteLine("Tarea movida con exito !");
                 
             }
 
+            Console.WriteLine("sigue en  de foreach");
 
 
-
+        } 
+        foreach (var realizadas in listaRealizadas)
+        {
+            listaPendiente.Remove(realizadas); 
+            
+            
         }
+        
+            Console.WriteLine("sale de foreach");
     }
 
 
