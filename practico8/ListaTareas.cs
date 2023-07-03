@@ -51,27 +51,36 @@ public class ListaTarea
         }
 
     }
-    public void eliminarPorId( int id){
+    public void mostrarTarea(Tareas tarea)
+    {
         
-        for (int i = listaPendiente.Count-1 ; i >= 0 ; i--)
+        Console.WriteLine($"  El id de la tarea es: {tarea.ID} ");
+        Console.WriteLine($"   La duracion de la tarea es: {tarea.Duracion} ");
+        Console.WriteLine($"  La descripcion de la tarea es: {tarea.Descripcion} ");
+
+    }
+    public void eliminarPorId(int id)
+    {
+
+        for (int i = listaPendiente.Count - 1; i >= 0; i--)
         {
             if (listaPendiente[i].ID == id)
             {
                 listaPendiente.RemoveAt(i);
-                
+
             }
-            
+
         }
 
-       
+
     }
     public void moverTareas()
     {
         var contador = 0;
         int opcion = 0;
         bool valida;
-        string entrada; 
-        Tareas tareaAnterior; 
+        string entrada;
+        Tareas tareaAnterior;
         int largo = listaPendiente.Count();
         Console.WriteLine($"   EL LARGO D LA LISTA D PENDIENTES es: {largo} ");
 
@@ -86,33 +95,34 @@ public class ListaTarea
                 Console.WriteLine($"Si desea mover a Realizados La Tare N°{contador} Presione 1 de lo contrario 0");
                 entrada = Console.ReadLine();
                 valida = int.TryParse(entrada, out opcion);
-                if (!valida || (opcion!= 0 && opcion !=1))
-                { 
+                if (!valida || (opcion != 0 && opcion != 1))
+                {
                     Console.WriteLine("Opcion no valida, intente nuevamente. ");
-                    
-                }
-            } while (!valida || (opcion!= 0 && opcion !=1));
-            if (opcion == 1)
-            {   Tareas TRealizada = new Tareas(); 
-                TRealizada.Descripcion = tarea.Descripcion;
-                TRealizada.ID = tarea.ID; 
-                TRealizada.Duracion = tarea.Duracion; 
 
-                listaRealizadas.Add(TRealizada); 
+                }
+            } while (!valida || (opcion != 0 && opcion != 1));
+            if (opcion == 1)
+            {
+                Tareas TRealizada = new Tareas();
+                TRealizada.Descripcion = tarea.Descripcion;
+                TRealizada.ID = tarea.ID;
+                TRealizada.Duracion = tarea.Duracion;
+
+                listaRealizadas.Add(TRealizada);
                 // tareaAnterior = tarea;
                 // listaPendiente.Remove(tareaAnterior); 
-               
+
                 Console.WriteLine("Tarea movida con exito !");
-                
+
             }
 
             Console.WriteLine("sigue en  de foreach");
 
 
-        } 
-     
-        
-            Console.WriteLine("sale de foreach");
+        }
+
+
+        Console.WriteLine("sale de foreach");
     }
 
 

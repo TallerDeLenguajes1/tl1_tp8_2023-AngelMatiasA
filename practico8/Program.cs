@@ -22,13 +22,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
             ManejoTareas.PedirTareas(cantidad);
             ManejoTareas.mostrarTareas(ManejoTareas.ListaPendiente);
             ManejoTareas.moverTareas();
+            /*elimino las tareas de la lista pendientes que se movieron a realizadas*/
             foreach (var realizadas in ManejoTareas.ListaRealizadas)
             {
                 ManejoTareas.eliminarPorId(realizadas.ID);
-
-
             }
 
+            /*Buscar Tarea*/
             do
             {
 
@@ -37,27 +37,58 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("desea buscar una tare ingrese 1 para si 2 para no");
                     entrada = Console.ReadLine();
                     valida = int.TryParse(entrada, out opcion);
-                    if (!valida || (opcion != 0 && opcion != 1))
+                    if (!valida || (opcion != 2 && opcion != 1))
                     {
                         Console.WriteLine("Opcion no valida, intente nuevamente. ");
 
                     }
-                } while (!valida || (opcion != 0 && opcion != 1));
+                } while (!valida || (opcion != 2 && opcion != 1));
                 if (opcion == 1)
                 {
                     Console.WriteLine("Ingrese la tarea a buscar ");
-                    
+
                     entrada = Console.ReadLine();
                     foreach (var pendiente in ManejoTareas.ListaPendiente)
                     {
                         if (pendiente.Descripcion.Equals(entrada))
                         {
-                             Console.WriteLine("Tarea Encontrada ");
+                            Console.WriteLine("Tarea Encontrada en lista de pendientes ");
+                            ManejoTareas.mostrarTarea(pendiente);
+                            opcion = 0;
 
+                        }
+
+                    }
+                    if (opcion == 1)
+                    {
+
+                        Console.WriteLine("Tarea no encontrada en lista de pendientes");
+                        foreach (var pendiente in ManejoTareas.ListaRealizadas)
+                        {
+                            if (pendiente.Descripcion.Equals(entrada))
+                            {
+                                Console.WriteLine("Tarea Encontrada en lista de Realizadas ");
+                                ManejoTareas.mostrarTarea(pendiente);
+                                opcion = 0;
+
+                            }
+                          
+                        }
+                        if (opcion == 1)
+                        {
+                              
+                                Console.WriteLine("Tarea no encontrada en lista de Realizadas");
+                           
                             
                         }
+
+
                     }
-                    
+
+                }
+                else
+                {
+                    valida = false;
                 }
 
             } while (valida);
