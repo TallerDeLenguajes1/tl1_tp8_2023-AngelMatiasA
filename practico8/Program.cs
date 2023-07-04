@@ -19,7 +19,21 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             for (int i = 0; i < archivos.Count; i++)
             {
-                Console.WriteLine($"archivo nro {i} nombre: {Path.GetFileName(archivos[i]) }");
+                Console.WriteLine($"archivo nro {i+1} nombre: {Path.GetFileName(archivos[i]) }");
+            }
+
+            string rutaArchCsv = "index.csv"; 
+            using (StreamWriter escritor = new StreamWriter(rutaArchCsv))
+            {
+                escritor.WriteLine("Indice Nombre  Extension"); 
+                for (int i = 0; i < archivos.Count; i++)
+                {
+                    string nombreArchivo = Path.GetFileNameWithoutExtension(archivos[i]);
+                    string extensionArchivo = Path.GetExtension(archivos[i]); 
+                    escritor.WriteLine($" {i+1}  {nombreArchivo}  {extensionArchivo }");
+
+                }
+                
             }
 
         }
